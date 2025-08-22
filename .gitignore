@@ -1,5 +1,7 @@
 logs/
 trajs/
+data/
+heatmaps/
 tmp/
 experiments/
 my-evaluations
