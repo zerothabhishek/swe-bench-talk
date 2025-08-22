@@ -1,0 +1,4 @@
+Challenge,Created_At,Difficulty,20250603_Refact_Agent_claude-4-sonnet,20250610_augment_agent_v1,20250611_moatless_claude-4-sonnet-20250514,20250612_trae,20250616_Skywork-SWE-32B,20250616_Skywork-SWE-32B+TTS_Bo8,20250623_warp,20250627_agentless_MCTS-Refine-7B,20250629_deepswerl_r2eagent,20250629_deepswerl_r2eagent_tts
+pydata__xarray-6992,2022-09-05T15:07:43Z,>4 hours,0,0,0,0,0,0,0,0,0,0
+sphinx-doc__sphinx-7590,2020-05-01T18:29:11Z,>4 hours,0,0,0,0,0,0,0,0,0,0
+sympy__sympy-13878,2018-01-10T07:00:58Z,>4 hours,1,1,0,1,0,0,1,0,1,0
