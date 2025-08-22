@@ -82,7 +82,7 @@ def create_heatmap(heatmap_data, challenge_labels, candidate_cols, df_sorted, ou
     
     # Create statistics text
     stats_text = f"""SUMMARY STATISTICS:
-Total Challenges: {total_challenges} | Total Candidates: {total_candidates} | Total Solutions: {total_solutions} | Overall Success Rate: {overall_success_rate:.1f}%
+Total Challenges: {total_challenges} | Total Candidates: {total_candidates} | Total Solutions: {total_solutions} 
 
 CANDIDATE PERFORMANCE (ordered by performance):
 """
@@ -90,7 +90,8 @@ CANDIDATE PERFORMANCE (ordered by performance):
     # Add candidate performance details
     for i, (candidate, solved) in enumerate(candidate_performance.items()):
         success_rate = solved / total_challenges * 100
-        stats_text += f"{i+1:2d}. {candidate}: {solved:3d}/{total_challenges} ({success_rate:5.1f}%)\n"
+        # Format with gap between name and stats, and right-justified stats
+        stats_text += f"{i+1:2d}. {candidate:<45} {solved:3d}/{total_challenges} {success_rate:5.1f}%\n"
     
     # Display statistics at the bottom
     ax2.text(0.02, 0.95, stats_text, transform=ax2.transAxes, fontsize=10, 

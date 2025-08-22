@@ -110,7 +110,7 @@ def main():
     
     # Process each result file
     for result_file in result_files:
-        file_path = Path("results") / result_file
+        file_path = Path(".") / result_file
         
         if not file_path.exists():
             print(f"Warning: {file_path} not found, skipping...")
