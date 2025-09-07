@@ -95,7 +95,8 @@ function generateHTML(heatmapData, challengeLabels, candidateCols, candidateSums
     </script>`;
 
     // Insert the data script before the frontend script
-    htmlTemplate = htmlTemplate.replace('<script src="heatmap_frontend.js"></script>', dataScript + '\n    <script src="heatmap_frontend.js"></script>');
+    // htmlTemplate = htmlTemplate.replace('<script src="heatmap_frontend.js"></script>', dataScript + '\n    <script src="heatmap_frontend.js"></script>');
+    htmlTemplate = htmlTemplate.replace('<datascript />', dataScript);
 
     return htmlTemplate;
 }

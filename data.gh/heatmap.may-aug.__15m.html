@@ -199,6 +199,7 @@
       </div>
     </div>
 
+    <!-- <script src="heatmap_frontend.js"></script> -->
     
     <script>
         // Initialize data for the frontend
@@ -206,6 +207,264 @@
         window.challengeLabels = ["astropy__astropy-14309","astropy__astropy-14995","astropy__astropy-7166","astropy__astropy-7336","django__django-10097","django__django-10880","django__django-10914","django__django-10999","django__django-11066","django__django-11099","django__django-11119","django__django-11133","django__django-11163","django__django-11179","django__django-11239","django__django-11299","django__django-11433","django__django-11451","django__django-11490","django__django-11555","django__django-11603","django__django-11820","django__django-11880","django__django-11951","django__django-11964","django__django-12125","django__django-12193","django__django-12209","django__django-12276","django__django-12304","django__django-12308","django__django-12419","django__django-12741","django__django-13023","django__django-13089","django__django-13109","django__django-13112","django__django-13297","django__django-13363","django__django-13406","django__django-13410","django__django-13417","django__django-13512","django__django-13551","django__django-13741","django__django-13794","django__django-13807","django__django-13821","django__django-13933","django__django-14089","django__django-14315","django__django-14373","django__django-14376","django__django-14404","django__django-14493","django__django-14534","django__django-14539","django__django-14580","django__django-14608","django__django-14752","django__django-14765","django__django-14787","django__django-14792","django__django-14855","django__django-14915","django__django-14999","django__django-15104","django__django-15127","django__django-15277","django__django-15315","django__django-15368","django__django-15380","django__django-15467","django__django-15499","django__django-15569","django__django-15572","django__django-15741","django__django-15851","django__django-15863","django__django-15930","django__django-15987","django__django-16100","django__django-16116","django__django-16139","django__django-16145","django__django-16255","django__django-16333","django__django-16429","django__django-16569","django__django-16595","django__django-16642","django__django-16801","django__django-16899","django__django-17029","django__django-17087","django__django-9296","matplotlib__matplotlib-13989","matplotlib__matplotlib-20676","matplotlib__matplotlib-20859","matplotlib__matplotlib-22719","matplotlib__matplotlib-23476","matplotlib__matplotlib-24149","matplotlib__matplotlib-24177","matplotlib__matplotlib-24570","matplotlib__matplotlib-25122","matplotlib__matplotlib-25287","matplotlib__matplotlib-25311","matplotlib__matplotlib-25332","matplotlib__matplotlib-25479","matplotlib__matplotlib-26113","matplotlib__matplotlib-26208","pallets__flask-5014","psf__requests-1142","psf__requests-1724","psf__requests-1766","psf__requests-1921","psf__requests-2317","psf__requests-5414","pydata__xarray-4075","pydata__xarray-4094","pydata__xarray-4356","pydata__xarray-4629","pydata__xarray-6461","pylint-dev__pylint-4970","pylint-dev__pylint-6903","pylint-dev__pylint-7277","pytest-dev__pytest-10081","pytest-dev__pytest-5262","pytest-dev__pytest-5809","pytest-dev__pytest-6202","pytest-dev__pytest-7205","pytest-dev__pytest-7432","pytest-dev__pytest-7521","pytest-dev__pytest-7982","scikit-learn__scikit-learn-11310","scikit-learn__scikit-learn-12585","scikit-learn__scikit-learn-13135","scikit-learn__scikit-learn-13142","scikit-learn__scikit-learn-13328","scikit-learn__scikit-learn-13439","scikit-learn__scikit-learn-13496","scikit-learn__scikit-learn-13779","scikit-learn__scikit-learn-14141","scikit-learn__scikit-learn-14496","scikit-learn__scikit-learn-14983","scikit-learn__scikit-learn-25232","scikit-learn__scikit-learn-25973","sphinx-doc__sphinx-10323","sphinx-doc__sphinx-10435","sphinx-doc__sphinx-10449","sphinx-doc__sphinx-7440","sphinx-doc__sphinx-7454","sphinx-doc__sphinx-7462","sphinx-doc__sphinx-7889","sphinx-doc__sphinx-7910","sphinx-doc__sphinx-8269","sphinx-doc__sphinx-8459","sphinx-doc__sphinx-8475","sphinx-doc__sphinx-8595","sphinx-doc__sphinx-8621","sphinx-doc__sphinx-8721","sphinx-doc__sphinx-9230","sphinx-doc__sphinx-9258","sphinx-doc__sphinx-9281","sphinx-doc__sphinx-9320","sphinx-doc__sphinx-9367","sphinx-doc__sphinx-9591","sphinx-doc__sphinx-9698","sphinx-doc__sphinx-9711","sympy__sympy-12096","sympy__sympy-12481","sympy__sympy-13372","sympy__sympy-13480","sympy__sympy-14711","sympy__sympy-15017","sympy__sympy-15345","sympy__sympy-15809","sympy__sympy-15875","sympy__sympy-16450","sympy__sympy-16766","sympy__sympy-16886","sympy__sympy-17139","sympy__sympy-17655","sympy__sympy-18189","sympy__sympy-18763","sympy__sympy-19495","sympy__sympy-19637","sympy__sympy-19954","sympy__sympy-20916","sympy__sympy-21847","sympy__sympy-22714","sympy__sympy-23534","sympy__sympy-24539","sympy__sympy-24562"];
         window.candidateLabels = ["20250627_agentless_MCTS-Refine-7B","20250616_Skywork-SWE-32B","20250725_sweagent_devstral_small_2507","20250527_amazon.nova-premier-v1.0","20250629_deepswerl_r2eagent","20250511_sweagent_lm_32b","20250806_SWE-Exp_DeepSeek-V3","20250528_patchpilot_Co-PatcheR","20250616_Skywork-SWE-32B+TTS_Bo8","20250520_openhands_devstral_small","20250805_openhands-Qwen3-Coder-30B-A3B-Instruct","20250629_deepswerl_r2eagent_tts","20250503_patchpilot-v1.1-o4-mini","20250514_aime_coder","20250728_zai_glm4-5","20250716_openhands_kimi_k2","20250522_sweagent_claude-4-sonnet-20250514","20250516_cortexa_o3","20250522_tools_claude-4-sonnet","20250623_warp","20250522_tools_claude-4-opus","20250610_augment_agent_v1","20250611_moatless_claude-4-sonnet-20250514","20250515_Refact_Agent","20250524_openhands_claude_4_sonnet","20250519_trae","20250710_bloop","20250805_openhands-Qwen3-Coder-480B-A35B-Instruct","20250519_devlo","20250715_qodo_command","20250603_Refact_Agent_claude-4-sonnet","20250720_Lingxi-v1.5_claude-4-sonnet-20250514","20250612_trae","20250819_ACoder\r","20250731_harness_ai","20250804_epam-ai-run-claude-4-sonnet"];
     </script>
-    <script src="heatmap_frontend.js"></script>
+
+    <script>
+      /**
+       * Frontend JavaScript for SWE-Bench Interactive Heatmap
+       * This file contains the ECharts initialization and interaction logic
+       */
+
+      // Global variables to store data
+      let heatmapData = [];
+      let challenges = [];
+      let candidates = [];
+
+      function copyToClipboard(text) {
+        navigator.clipboard.writeText(text);
+      }
+
+      /**
+       * Initialize the heatmap with data
+       * @param {Array} data - 2D array of heatmap values
+       * @param {Array} challengeLabels - Array of challenge names
+       * @param {Array} candidateLabels - Array of candidate names
+       */
+      function initializeHeatmap(data, challengeLabels, candidateLabels) {
+        heatmapData = data;
+        challenges = challengeLabels;
+        candidates = candidateLabels;
+
+        // Initialize ECharts
+        const chartDom = document.getElementById("heatmap");
+        const myChart = echarts.init(chartDom);
+
+        // Transform data for ECharts heatmap format
+        const echartsData = [];
+        data.forEach((row, rowIndex) => {
+          row.forEach((value, colIndex) => {
+            echartsData.push([colIndex, rowIndex, value]);
+          });
+        });
+
+        const option = {
+          // title: {
+          //     text: 'SWE-Bench Challenge Resolution Heatmap',
+          //     left: 'center',
+          //     textStyle: {
+          //         fontSize: 12,
+          //         fontWeight: 'bold'
+          //     }
+          // },
+          tooltip: {
+            position: "top",
+            formatter: function (params) {
+              const candidate = candidates[params.data[0]];
+              const challenge = challenges[params.data[1]];
+              const value = params.data[2];
+              const status = value === 1 ? "Solved" : "Not Solved";
+              const color = value === 1 ? "#28a745" : "#dc3545";
+              return `
+                    <div style="padding: 8px;">
+                        <div style="font-weight: bold; margin-bottom: 4px;">${challenge}</div>
+                        <div style="margin-bottom: 2px;"><strong>Candidate:</strong> ${candidate}</div>
+                        <div style="margin-bottom: 2px;"><strong>Status:</strong> 
+                            <span style="color: ${color}; font-weight: bold;">${status}</span>
+                        </div>
+                    </div>
+                `;
+            },
+          },
+          grid: {
+            height: "80%",
+            top: "1%",
+            left: "15%",
+            right: "10%",
+          },
+          xAxis: {
+            type: "category",
+            data: candidates,
+            splitArea: {
+              show: true,
+            },
+            axisLabel: {
+              rotate: 45,
+              fontSize: 10,
+              interval: 0,
+            },
+            name: "Candidates",
+            nameLocation: "middle",
+            nameGap: 150,
+            nameTextStyle: {
+              fontSize: 12,
+              fontWeight: "bold",
+            },
+            boundaryGap: false,
+          },
+          yAxis: {
+            type: "category",
+            data: challenges,
+            splitArea: {
+              show: true,
+            },
+            axisLabel: {
+              fontSize: 8,
+              interval: 0,
+            },
+            name: "Challenges",
+            nameLocation: "middle",
+            nameGap: 120,
+            nameTextStyle: {
+              fontSize: 12,
+              fontWeight: "bold",
+            },
+            boundaryGap: false,
+          },
+          visualMap: {
+            min: 0,
+            max: 1,
+            calculable: true,
+            orient: "horizontal",
+            left: "center",
+            bottom: "1%",
+            inRange: {
+              color: ["#dc3545", "#28a745"],
+            },
+            text: ["Not Solved", "Solved"],
+            textStyle: {
+              fontSize: 12,
+            },
+          },
+          series: [
+            {
+              name: "Challenge Resolution",
+              type: "heatmap",
+              data: echartsData,
+              label: {
+                show: false,
+              },
+              itemStyle: {
+                // borderColor: 'lightgray',
+                // borderWidth: 1,
+              },
+              emphasis: {
+                itemStyle: {
+                  shadowBlur: 10,
+                  shadowColor: "rgba(0, 0, 0, 0.5)",
+                  borderColor: "white",
+                  borderWidth: 1,
+                },
+              },
+            },
+          ],
+        };
+
+        // Set option and render
+        myChart.setOption(option);
+
+        // Handle window resize
+        window.addEventListener("resize", function () {
+          myChart.resize();
+        });
+
+        // Add click event for more interactivity
+        myChart.on("click", function (params) {
+          const candidate = candidates[params.data[0]];
+          const challenge = challenges[params.data[1]];
+          const value = params.data[2];
+          const status = value === 1 ? "Solved" : "Not Solved";
+
+          const [org, repoAndIssue] = challenge.split("__");
+          const repoAndIssueParts = repoAndIssue.split("-");
+          const repo = repoAndIssueParts.slice(0, -1).join("-"); // all but the last one
+          const issue = repoAndIssueParts[repoAndIssueParts.length - 1]; // last one
+
+          const repoUrl =
+            "https://github.com/" + org + "/" + repo + "/pull/" + issue;
+          console.log(challenge, repo, issue, repoUrl);
+
+          copyToClipboard(challenge);
+
+          if (window.doNotOpenRepo !== 1) window.open(repoUrl, "_blank");
+        });
+
+        return myChart;
+      }
+
+      /**
+       * Update the heatmap with new data
+       * @param {Array} data - New 2D array of heatmap values
+       * @param {Array} challengeLabels - New array of challenge names
+       * @param {Array} candidateLabels - New array of candidate names
+       */
+      function updateHeatmap(data, challengeLabels, candidateLabels) {
+        heatmapData = data;
+        challenges = challengeLabels;
+        candidates = candidateLabels;
+
+        // Re-initialize the chart with new data
+        const chartDom = document.getElementById("heatmap");
+        if (chartDom) {
+          echarts.dispose(chartDom);
+          initializeHeatmap(data, challengeLabels, candidateLabels);
+        }
+      }
+
+      /**
+       * Get current heatmap data
+       * @returns {Object} Current data object
+       */
+      function getHeatmapData() {
+        return {
+          data: heatmapData,
+          challenges: challenges,
+          candidates: candidates,
+        };
+      }
+
+      /**
+       * Export heatmap as image
+       * @param {string} filename - Name of the file to save
+       * @param {string} format - Image format ('png' or 'jpeg')
+       */
+      function exportHeatmap(filename = "heatmap", format = "png") {
+        const chartDom = document.getElementById("heatmap");
+        const myChart = echarts.getInstanceByDom(chartDom);
+
+        if (myChart) {
+          const url = myChart.getDataURL({
+            type: format,
+            pixelRatio: 2,
+            backgroundColor: "#fff",
+          });
+
+          const link = document.createElement("a");
+          link.download = `${filename}.${format}`;
+          link.href = url;
+          link.click();
+        }
+      }
+
+      // Initialize when DOM is loaded
+      document.addEventListener("DOMContentLoaded", function () {
+        // Check if data is available in global variables (set by the main script)
+        if (
+          typeof window.heatmapData !== "undefined" &&
+          typeof window.challengeLabels !== "undefined" &&
+          typeof window.candidateLabels !== "undefined"
+        ) {
+          initializeHeatmap(
+            window.heatmapData,
+            window.challengeLabels,
+            window.candidateLabels
+          );
+        }
+      });
+
+      // Make functions available globally for external use
+      window.initializeHeatmap = initializeHeatmap;
+      window.updateHeatmap = updateHeatmap;
+      window.getHeatmapData = getHeatmapData;
+      window.exportHeatmap = exportHeatmap;
+    </script>
   </body>
 </html>

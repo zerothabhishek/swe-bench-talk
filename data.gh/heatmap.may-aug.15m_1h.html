@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>SWE-Bench Interactive Challenge Heatmap</title>
     <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
     <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            padding: 20px;
-            background-color: #f5f5f5;
-        }
-        /* .container {
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        margin: 0;
+        padding: 20px;
+        background-color: #f5f5f5;
+      }
+      /* .container {
             max-width: 1400px;
             margin: 0 auto;
             background: white;
@@ -20,138 +20,142 @@
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
             overflow: hidden;
         } */
-        .header {
-            /* background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); */
-            /* color: white; */
-            /* padding: 20px; */
-            text-align: center;
-        }
-        .header h1 {
-            margin: 0;
-            font-size: 28px;
-            font-weight: 300;
-        }
-        /* .header p {
+      .header {
+        /* background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); */
+        /* color: white; */
+        /* padding: 20px; */
+        text-align: center;
+      }
+      .header h1 {
+        margin: 0;
+        font-size: 28px;
+        font-weight: 300;
+      }
+      /* .header p {
             margin: 10px 0 0 0;
             opacity: 0.9;
             font-size: 16px;
         } */
-        .heatmap-container {
-            padding: 20px;
+      .heatmap-container {
+        padding: 20px;
+      }
+      #heatmap {
+        width: 100%;
+        height: 800px;
+        min-height: 400px;
+      }
+      .stats-container {
+        background: #f8f9fa;
+        padding: 20px;
+        border-top: 1px solid #e9ecef;
+      }
+      .stats-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+      }
+      .stats-box {
+        background: white;
+        padding: 15px;
+        border-radius: 6px;
+        border-left: 4px solid #667eea;
+      }
+      .stats-box h3 {
+        margin: 0 0 10px 0;
+        color: #333;
+        font-size: 16px;
+      }
+      .stats-box .stat {
+        font-size: 14px;
+        color: #666;
+        margin: 5px 0;
+      }
+      .performance-list {
+        background: white;
+        padding: 15px;
+        border-radius: 6px;
+        border-left: 4px solid #28a745;
+        font-family: "Courier New", monospace;
+        font-size: 12px;
+        line-height: 1.4;
+        max-height: 300px;
+        overflow-y: auto;
+      }
+      .performance-list h3 {
+        margin: 0 0 10px 0;
+        color: #333;
+        font-family: "Segoe UI", sans-serif;
+      }
+      .legend {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        margin: 20px 0;
+        font-size: 14px;
+      }
+      .legend-item {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .legend-color {
+        width: 20px;
+        height: 20px;
+        border-radius: 3px;
+      }
+      .legend-solved {
+        background-color: #28a745;
+      }
+      .legend-unsolved {
+        background-color: #dc3545;
+      }
+
+      @media (max-width: 768px) {
+        .stats-grid {
+          grid-template-columns: 1fr;
         }
         #heatmap {
-            width: 100%;
-            height: 800px;
-            min-height: 400px;
+          height: 400px;
         }
-        .stats-container {
-            background: #f8f9fa;
-            padding: 20px;
-            border-top: 1px solid #e9ecef;
-        }
-        .stats-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-        }
-        .stats-box {
-            background: white;
-            padding: 15px;
-            border-radius: 6px;
-            border-left: 4px solid #667eea;
-        }
-        .stats-box h3 {
-            margin: 0 0 10px 0;
-            color: #333;
-            font-size: 16px;
-        }
-        .stats-box .stat {
-            font-size: 14px;
-            color: #666;
-            margin: 5px 0;
-        }
-        .performance-list {
-            background: white;
-            padding: 15px;
-            border-radius: 6px;
-            border-left: 4px solid #28a745;
-            font-family: 'Courier New', monospace;
-            font-size: 12px;
-            line-height: 1.4;
-            max-height: 300px;
-            overflow-y: auto;
-        }
-        .performance-list h3 {
-            margin: 0 0 10px 0;
-            color: #333;
-            font-family: 'Segoe UI', sans-serif;
-        }
-        .legend {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 20px;
-            margin: 20px 0;
-            font-size: 14px;
-        }
-        .legend-item {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        .legend-color {
-            width: 20px;
-            height: 20px;
-            border-radius: 3px;
-        }
-        .legend-solved { background-color: #28a745; }
-        .legend-unsolved { background-color: #dc3545; }
-        
-        @media (max-width: 768px) {
-            .stats-grid {
-                grid-template-columns: 1fr;
-            }
-            #heatmap {
-                height: 400px;
-            }
-        }
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <div class="container">
-        <div class="header">
-            <h1>SWE-Bench Resolution Heatmap</h1>
-        </div>
-        
-        <div class="heatmap-container">
-           
-            <div id="heatmap"></div>
+      <div class="header">
+        <h1>SWE-Bench Resolution Heatmap</h1>
+      </div>
 
-            <div class="legend">
-                <div class="legend-item">
-                    <div class="legend-color legend-solved"></div>
-                    <span>Challenge Solved (1)</span>
-                </div>
-                <div class="legend-item">
-                    <div class="legend-color legend-unsolved"></div>
-                    <span>Challenge Not Solved (0)</span>
-                </div>
+      <div class="heatmap-container">
+        <div id="heatmap"></div>
+
+        <div class="legend">
+          <div class="legend-item">
+            <div class="legend-color legend-solved"></div>
+            <span>Challenge Solved (1)</span>
+          </div>
+          <div class="legend-item">
+            <div class="legend-color legend-unsolved"></div>
+            <span>Challenge Not Solved (0)</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="stats-container">
+        <div class="stats-grid">
+          <div class="stats-box">
+            <h3>Summary Statistics</h3>
+            <div class="stat">Total Challenges: 261</div>
+            <div class="stat">Total Candidates: 36</div>
+            <div class="stat">Total Solutions: 5342</div>
+            <div class="stat">
+              Overall Success Rate: 56.9%
             </div>
-
-        </div>
-        
-        <div class="stats-container">
-            <div class="stats-grid">
-                <div class="stats-box">
-                    <h3>Summary Statistics</h3>
-                    <div class="stat">Total Challenges: 261</div>
-                    <div class="stat">Total Candidates: 36</div>
-                    <div class="stat">Total Solutions: 5342</div>
-                    <div class="stat">Overall Success Rate: 56.9%</div>
-                </div>
-                <div class="performance-list">
-                    <h3>Candidate Performance (ordered by performance)</h3>
-                    <pre>
+          </div>
+          <div class="performance-list">
+            <h3>Candidate Performance (ordered by performance)</h3>
+            <pre>
  1. 20250804_epam-ai-run-claude-4-sonnet          194/261  74.3%
  2. 20250819_ACoder                              192/261  73.6%
  3. 20250612_trae                                 190/261  72.8%
@@ -188,10 +192,11 @@
 34. 20250725_sweagent_devstral_small_2507          77/261  29.5%
 35. 20250616_Skywork-SWE-32B                       76/261  29.1%
 36. 20250627_agentless_MCTS-Refine-7B              45/261  17.2%
-                    </pre>
-                </div>
-            </div>
+                    </pre
+            >
+          </div>
         </div>
+      </div>
     </div>
 
     
@@ -201,6 +206,264 @@
         window.challengeLabels = ["astropy__astropy-12907","astropy__astropy-13033","astropy__astropy-13236","astropy__astropy-13453","astropy__astropy-13977","astropy__astropy-14096","astropy__astropy-14182","astropy__astropy-14365","astropy__astropy-14508","astropy__astropy-14539","astropy__astropy-14598","astropy__astropy-7606","astropy__astropy-7671","astropy__astropy-8707","astropy__astropy-8872","django__django-10973","django__django-11087","django__django-11095","django__django-11141","django__django-11149","django__django-11206","django__django-11211","django__django-11265","django__django-11276","django__django-11292","django__django-11333","django__django-11477","django__django-11532","django__django-11551","django__django-11728","django__django-11734","django__django-11740","django__django-11749","django__django-11790","django__django-11815","django__django-11848","django__django-11999","django__django-12039","django__django-12050","django__django-12143","django__django-12155","django__django-12262","django__django-12273","django__django-12406","django__django-12663","django__django-12713","django__django-12754","django__django-12774","django__django-12858","django__django-12965","django__django-13012","django__django-13028","django__django-13033","django__django-13121","django__django-13158","django__django-13195","django__django-13279","django__django-13315","django__django-13343","django__django-13346","django__django-13401","django__django-13513","django__django-13516","django__django-13568","django__django-13569","django__django-13590","django__django-13658","django__django-13670","django__django-13786","django__django-13809","django__django-13810","django__django-13820","django__django-13925","django__django-13964","django__django-14017","django__django-14034","django__django-14053","django__django-14122","django__django-14140","django__django-14155","django__django-14170","django__django-14238","django__django-14311","django__django-14349","django__django-14351","django__django-14434","django__django-14500","django__django-14559","django__django-14672","django__django-14725","django__django-14771","django__django-15022","django__django-15037","django__django-15098","django__django-15103","django__django-15161","django__django-15252","django__django-15278","django__django-15280","django__django-15375","django__django-15382","django__django-15525","django__django-15554","django__django-15561","django__django-15563","django__django-15695","django__django-15731","django__django-15732","django__django-15814","django__django-15916","django__django-15973","django__django-16032","django__django-16082","django__django-16136","django__django-16256","django__django-16315","django__django-16454","django__django-16485","django__django-16493","django__django-16502","django__django-16527","django__django-16612","django__django-16661","django__django-16662","django__django-16667","django__django-16819","django__django-16877","django__django-16901","django__django-16938","django__django-16950","django__django-17084","django__django-7530","matplotlib__matplotlib-14623","matplotlib__matplotlib-20488","matplotlib__matplotlib-20826","matplotlib__matplotlib-21568","matplotlib__matplotlib-22865","matplotlib__matplotlib-22871","matplotlib__matplotlib-23299","matplotlib__matplotlib-23314","matplotlib__matplotlib-23412","matplotlib__matplotlib-24026","matplotlib__matplotlib-24627","matplotlib__matplotlib-24637","matplotlib__matplotlib-24870","matplotlib__matplotlib-24970","matplotlib__matplotlib-25775","matplotlib__matplotlib-25960","matplotlib__matplotlib-26291","matplotlib__matplotlib-26342","matplotlib__matplotlib-26466","mwaskom__seaborn-3069","mwaskom__seaborn-3187","psf__requests-2931","psf__requests-6028","pydata__xarray-2905","pydata__xarray-3095","pydata__xarray-3151","pydata__xarray-3305","pydata__xarray-3677","pydata__xarray-4687","pydata__xarray-4695","pydata__xarray-4966","pydata__xarray-6599","pydata__xarray-6721","pydata__xarray-6744","pydata__xarray-6938","pydata__xarray-7229","pydata__xarray-7233","pydata__xarray-7393","pylint-dev__pylint-4604","pylint-dev__pylint-4661","pylint-dev__pylint-6386","pylint-dev__pylint-6528","pylint-dev__pylint-7080","pytest-dev__pytest-10051","pytest-dev__pytest-5631","pytest-dev__pytest-5840","pytest-dev__pytest-7236","pytest-dev__pytest-7324","pytest-dev__pytest-7490","pytest-dev__pytest-7571","pytest-dev__pytest-8399","scikit-learn__scikit-learn-10297","scikit-learn__scikit-learn-10844","scikit-learn__scikit-learn-10908","scikit-learn__scikit-learn-11578","scikit-learn__scikit-learn-12682","scikit-learn__scikit-learn-12973","scikit-learn__scikit-learn-13124","scikit-learn__scikit-learn-14053","scikit-learn__scikit-learn-14087","scikit-learn__scikit-learn-14629","scikit-learn__scikit-learn-14710","scikit-learn__scikit-learn-14894","scikit-learn__scikit-learn-15100","scikit-learn__scikit-learn-25747","scikit-learn__scikit-learn-25931","scikit-learn__scikit-learn-26194","scikit-learn__scikit-learn-26323","scikit-learn__scikit-learn-9288","sphinx-doc__sphinx-10466","sphinx-doc__sphinx-10614","sphinx-doc__sphinx-10673","sphinx-doc__sphinx-11445","sphinx-doc__sphinx-7748","sphinx-doc__sphinx-7757","sphinx-doc__sphinx-7985","sphinx-doc__sphinx-8035","sphinx-doc__sphinx-8056","sphinx-doc__sphinx-8120","sphinx-doc__sphinx-8265","sphinx-doc__sphinx-8551","sphinx-doc__sphinx-8593","sphinx-doc__sphinx-8638","sphinx-doc__sphinx-9602","sphinx-doc__sphinx-9658","sphinx-doc__sphinx-9673","sympy__sympy-11618","sympy__sympy-12419","sympy__sympy-13031","sympy__sympy-13091","sympy__sympy-13551","sympy__sympy-13615","sympy__sympy-13647","sympy__sympy-13757","sympy__sympy-13798","sympy__sympy-13877","sympy__sympy-13974","sympy__sympy-14531","sympy__sympy-14976","sympy__sympy-15349","sympy__sympy-15599","sympy__sympy-15976","sympy__sympy-16792","sympy__sympy-17318","sympy__sympy-18211","sympy__sympy-18698","sympy__sympy-19040","sympy__sympy-19346","sympy__sympy-19783","sympy__sympy-20154","sympy__sympy-20428","sympy__sympy-20438","sympy__sympy-20590","sympy__sympy-20801","sympy__sympy-21379","sympy__sympy-21596","sympy__sympy-21612","sympy__sympy-21930","sympy__sympy-22080","sympy__sympy-22456","sympy__sympy-22914","sympy__sympy-23262","sympy__sympy-23413","sympy__sympy-23824","sympy__sympy-23950","sympy__sympy-24066","sympy__sympy-24213","sympy__sympy-24443","sympy__sympy-24661"];
         window.candidateLabels = ["20250627_agentless_MCTS-Refine-7B","20250616_Skywork-SWE-32B","20250725_sweagent_devstral_small_2507","20250511_sweagent_lm_32b","20250806_SWE-Exp_DeepSeek-V3","20250629_deepswerl_r2eagent","20250527_amazon.nova-premier-v1.0","20250520_openhands_devstral_small","20250528_patchpilot_Co-PatcheR","20250616_Skywork-SWE-32B+TTS_Bo8","20250805_openhands-Qwen3-Coder-30B-A3B-Instruct","20250629_deepswerl_r2eagent_tts","20250728_zai_glm4-5","20250716_openhands_kimi_k2","20250503_patchpilot-v1.1-o4-mini","20250522_sweagent_claude-4-sonnet-20250514","20250805_openhands-Qwen3-Coder-480B-A35B-Instruct","20250514_aime_coder","20250516_cortexa_o3","20250519_devlo","20250610_augment_agent_v1","20250524_openhands_claude_4_sonnet","20250519_trae","20250715_qodo_command","20250710_bloop","20250515_Refact_Agent","20250611_moatless_claude-4-sonnet-20250514","20250623_warp","20250522_tools_claude-4-opus","20250731_harness_ai","20250603_Refact_Agent_claude-4-sonnet","20250720_Lingxi-v1.5_claude-4-sonnet-20250514","20250522_tools_claude-4-sonnet","20250612_trae","20250819_ACoder\r","20250804_epam-ai-run-claude-4-sonnet"];
     </script>
-    <script src="heatmap_frontend.js"></script>
-</body>
+
+    <script>
+      /**
+       * Frontend JavaScript for SWE-Bench Interactive Heatmap
+       * This file contains the ECharts initialization and interaction logic
+       */
+
+      // Global variables to store data
+      let heatmapData = [];
+      let challenges = [];
+      let candidates = [];
+
+      function copyToClipboard(text) {
+        navigator.clipboard.writeText(text);
+      }
+
+      /**
+       * Initialize the heatmap with data
+       * @param {Array} data - 2D array of heatmap values
+       * @param {Array} challengeLabels - Array of challenge names
+       * @param {Array} candidateLabels - Array of candidate names
+       */
+      function initializeHeatmap(data, challengeLabels, candidateLabels) {
+        heatmapData = data;
+        challenges = challengeLabels;
+        candidates = candidateLabels;
+
+        // Initialize ECharts
+        const chartDom = document.getElementById("heatmap");
+        const myChart = echarts.init(chartDom);
+
+        // Transform data for ECharts heatmap format
+        const echartsData = [];
+        data.forEach((row, rowIndex) => {
+          row.forEach((value, colIndex) => {
+            echartsData.push([colIndex, rowIndex, value]);
+          });
+        });
+
+        const option = {
+          // title: {
+          //     text: 'SWE-Bench Challenge Resolution Heatmap',
+          //     left: 'center',
+          //     textStyle: {
+          //         fontSize: 12,
+          //         fontWeight: 'bold'
+          //     }
+          // },
+          tooltip: {
+            position: "top",
+            formatter: function (params) {
+              const candidate = candidates[params.data[0]];
+              const challenge = challenges[params.data[1]];
+              const value = params.data[2];
+              const status = value === 1 ? "Solved" : "Not Solved";
+              const color = value === 1 ? "#28a745" : "#dc3545";
+              return `
+                    <div style="padding: 8px;">
+                        <div style="font-weight: bold; margin-bottom: 4px;">${challenge}</div>
+                        <div style="margin-bottom: 2px;"><strong>Candidate:</strong> ${candidate}</div>
+                        <div style="margin-bottom: 2px;"><strong>Status:</strong> 
+                            <span style="color: ${color}; font-weight: bold;">${status}</span>
+                        </div>
+                    </div>
+                `;
+            },
+          },
+          grid: {
+            height: "80%",
+            top: "1%",
+            left: "15%",
+            right: "10%",
+          },
+          xAxis: {
+            type: "category",
+            data: candidates,
+            splitArea: {
+              show: true,
+            },
+            axisLabel: {
+              rotate: 45,
+              fontSize: 10,
+              interval: 0,
+            },
+            name: "Candidates",
+            nameLocation: "middle",
+            nameGap: 150,
+            nameTextStyle: {
+              fontSize: 12,
+              fontWeight: "bold",
+            },
+            boundaryGap: false,
+          },
+          yAxis: {
+            type: "category",
+            data: challenges,
+            splitArea: {
+              show: true,
+            },
+            axisLabel: {
+              fontSize: 8,
+              interval: 0,
+            },
+            name: "Challenges",
+            nameLocation: "middle",
+            nameGap: 120,
+            nameTextStyle: {
+              fontSize: 12,
+              fontWeight: "bold",
+            },
+            boundaryGap: false,
+          },
+          visualMap: {
+            min: 0,
+            max: 1,
+            calculable: true,
+            orient: "horizontal",
+            left: "center",
+            bottom: "1%",
+            inRange: {
+              color: ["#dc3545", "#28a745"],
+            },
+            text: ["Not Solved", "Solved"],
+            textStyle: {
+              fontSize: 12,
+            },
+          },
+          series: [
+            {
+              name: "Challenge Resolution",
+              type: "heatmap",
+              data: echartsData,
+              label: {
+                show: false,
+              },
+              itemStyle: {
+                // borderColor: 'lightgray',
+                // borderWidth: 1,
+              },
+              emphasis: {
+                itemStyle: {
+                  shadowBlur: 10,
+                  shadowColor: "rgba(0, 0, 0, 0.5)",
+                  borderColor: "white",
+                  borderWidth: 1,
+                },
+              },
+            },
+          ],
+        };
+
+        // Set option and render
+        myChart.setOption(option);
+
+        // Handle window resize
+        window.addEventListener("resize", function () {
+          myChart.resize();
+        });
+
+        // Add click event for more interactivity
+        myChart.on("click", function (params) {
+          const candidate = candidates[params.data[0]];
+          const challenge = challenges[params.data[1]];
+          const value = params.data[2];
+          const status = value === 1 ? "Solved" : "Not Solved";
+
+          const [org, repoAndIssue] = challenge.split("__");
+          const repoAndIssueParts = repoAndIssue.split("-");
+          const repo = repoAndIssueParts.slice(0, -1).join("-"); // all but the last one
+          const issue = repoAndIssueParts[repoAndIssueParts.length - 1]; // last one
+
+          const repoUrl =
+            "https://github.com/" + org + "/" + repo + "/pull/" + issue;
+          console.log(challenge, repo, issue, repoUrl);
+
+          copyToClipboard(challenge);
+
+          if (window.doNotOpenRepo !== 1) window.open(repoUrl, "_blank");
+        });
+
+        return myChart;
+      }
+
+      /**
+       * Update the heatmap with new data
+       * @param {Array} data - New 2D array of heatmap values
+       * @param {Array} challengeLabels - New array of challenge names
+       * @param {Array} candidateLabels - New array of candidate names
+       */
+      function updateHeatmap(data, challengeLabels, candidateLabels) {
+        heatmapData = data;
+        challenges = challengeLabels;
+        candidates = candidateLabels;
+
+        // Re-initialize the chart with new data
+        const chartDom = document.getElementById("heatmap");
+        if (chartDom) {
+          echarts.dispose(chartDom);
+          initializeHeatmap(data, challengeLabels, candidateLabels);
+        }
+      }
+
+      /**
+       * Get current heatmap data
+       * @returns {Object} Current data object
+       */
+      function getHeatmapData() {
+        return {
+          data: heatmapData,
+          challenges: challenges,
+          candidates: candidates,
+        };
+      }
+
+      /**
+       * Export heatmap as image
+       * @param {string} filename - Name of the file to save
+       * @param {string} format - Image format ('png' or 'jpeg')
+       */
+      function exportHeatmap(filename = "heatmap", format = "png") {
+        const chartDom = document.getElementById("heatmap");
+        const myChart = echarts.getInstanceByDom(chartDom);
+
+        if (myChart) {
+          const url = myChart.getDataURL({
+            type: format,
+            pixelRatio: 2,
+            backgroundColor: "#fff",
+          });
+
+          const link = document.createElement("a");
+          link.download = `${filename}.${format}`;
+          link.href = url;
+          link.click();
+        }
+      }
+
+      // Initialize when DOM is loaded
+      document.addEventListener("DOMContentLoaded", function () {
+        // Check if data is available in global variables (set by the main script)
+        if (
+          typeof window.heatmapData !== "undefined" &&
+          typeof window.challengeLabels !== "undefined" &&
+          typeof window.candidateLabels !== "undefined"
+        ) {
+          initializeHeatmap(
+            window.heatmapData,
+            window.challengeLabels,
+            window.candidateLabels
+          );
+        }
+      });
+
+      // Make functions available globally for external use
+      window.initializeHeatmap = initializeHeatmap;
+      window.updateHeatmap = updateHeatmap;
+      window.getHeatmapData = getHeatmapData;
+      window.exportHeatmap = exportHeatmap;
+    </script>
+  </body>
 </html>
